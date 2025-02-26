@@ -28,11 +28,18 @@ function App() {
     setTasks([...tasks, newTask]);
   };
 
+  const toggleTask = (id: number) => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === id ? { ...task, completed: !task.completed } : task
+    );
+    setTasks(updatedTasks);
+  };
+
   return (
     <div>
       <h1>Task Tracker</h1>
       <AddTask addTask={addTask} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} toggleTask={toggleTask} />
     </div>
   );
 }
