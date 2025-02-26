@@ -12,18 +12,21 @@ const TaskFilter: React.FC<TaskFilterProps> = ({
   return (
     <div>
       <button
+        type="button"
         onClick={() => setFilter('all')}
         disabled={currentFilter === 'all'}
       >
         All
       </button>
       <button
+        type="button"
         onClick={() => setFilter('active')}
         disabled={currentFilter === 'active'}
       >
         Active
       </button>
       <button
+        type="button"
         onClick={() => setFilter('completed')}
         disabled={currentFilter === 'completed'}
       >

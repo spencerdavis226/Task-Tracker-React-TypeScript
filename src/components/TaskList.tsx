@@ -10,10 +10,15 @@ interface Task {
 interface TaskListProps {
   tasks: Task[];
   toggleTask: (id: number) => void;
+  deleteTask: (id: number) => void;
 }
 
 // TaskList component receives an array of tasks and displays them
-const TaskList: React.FC<TaskListProps> = ({ tasks, toggleTask }) => {
+const TaskList: React.FC<TaskListProps> = ({
+  tasks,
+  toggleTask,
+  deleteTask,
+}) => {
   return (
     <ul>
       {tasks.map((task) => (
@@ -31,6 +36,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, toggleTask }) => {
           >
             {task.title}
           </span>
+          <button onClick={() => deleteTask(task.id)}>Delete</button>
         </li>
       ))}
     </ul>

@@ -43,12 +43,21 @@ function App() {
     return true;
   });
 
+  const deleteTask = (id: number) => {
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+    setTasks(updatedTasks);
+  };
+
   return (
     <div>
       <h1>Task Tracker</h1>
       <AddTask addTask={addTask} />
       <TaskFilter currentFilter={filter} setFilter={setFilter} />
-      <TaskList tasks={filteredTasks} toggleTask={toggleTask} />
+      <TaskList
+        tasks={filteredTasks}
+        toggleTask={toggleTask}
+        deleteTask={deleteTask}
+      />
     </div>
   );
 }
